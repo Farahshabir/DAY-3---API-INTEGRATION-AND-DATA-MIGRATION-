@@ -11,6 +11,14 @@ export const product = defineType({
             validation: (rule) => rule.required(),
             type: "string"
         },
+        // {
+        //     name: "slug",
+        //     type: "slug",
+        //     title: "slug",
+        //     options:{
+        //         source: "title",
+        //     }
+        // },
         {
             name:"description",
             type:"text",
@@ -40,10 +48,23 @@ export const product = defineType({
             type:"number",
             title:"Discount Percentage",
         },
+        
         {
             name:"isNew",
             type:"boolean",
             title:"New Badge",
-        }
+        },
+        {
+            name: 'rating',
+            title: 'Rating',
+            type: 'object',
+            fields: [
+              {
+                name: 'rate',
+                title: 'Rate',
+                type: 'number',
+                validation: Rule => Rule.min(0).max(5),
+              }
+    ]}
     ]
 })

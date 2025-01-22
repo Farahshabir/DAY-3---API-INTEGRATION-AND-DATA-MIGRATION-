@@ -12,3 +12,4 @@ const client = createClient({
 export async function sanityFetch({ query, params = {}}: { query: string; params?: any }) {
   return await  client.fetch(query, params)
 }
+

@@ -13,3 +13,17 @@ export const allProducts = defineQuery(
     }
     `
 )
+export const shopQuery = (shopId: string) => {
+    return defineQuery(`
+    *[_type == "product"]{
+    _id,
+    title,
+    description,
+    price,
+    tags,
+    isNew,
+    dicountPercentage,
+    "productImage": productImage.asset->url,
+    }[0]
+    `);
+}
